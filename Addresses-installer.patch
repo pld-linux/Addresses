@@ -1,0 +1,15 @@
+diff -ur Addresses-0.3.3-orig/AddressManager/GNUmakefile.preamble Addresses-0.3.3/AddressManager/GNUmakefile.preamble
+--- Addresses-0.3.3-orig/AddressManager/GNUmakefile.preamble	2003-10-16 02:53:31.000000000 -0600
++++ Addresses-0.3.3/AddressManager/GNUmakefile.preamble	2003-10-17 00:01:57.000000000 -0600
+@@ -30,10 +30,3 @@
+ ADDITIONAL_TOOL_LIBS +=
+ # WebObjects
+ ADDITIONAL_WO_LIBS +=
+-
+-# Additional directories to be created during installation
+-ADDITIONAL_INSTALL_DIRS += \
+-	$(GNUSTEP_USER_ROOT)/Library/Preferences \
+-	$(GNUSTEP_LOCAL_ROOT)/Library/Preferences \
+-	$(GNUSTEP_NETWORK_ROOT)/Library/Preferences \
+-	$(GNUSTEP_SYSTEM_ROOT)/Library/Preferences
+Only in Addresses-0.3.3/AddressManager: GNUmakefile.preamble~
