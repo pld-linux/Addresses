@@ -35,7 +35,6 @@ aplikacji GNUstepa.
 find . -type d -name CVS | xargs rm -rf
 
 %build
-rm -rf $RPM_BUILD_ROOT
 . %{_prefix}/System/Library/Makefiles/GNUstep.sh
 TOPDIR="`pwd`"
 GNUSTEP_LOCAL_ROOT="$RPM_BUILD_ROOT%{_prefix}/System"
@@ -45,7 +44,10 @@ GNUSTEP_LOCAL_ROOT="$RPM_BUILD_ROOT%{_prefix}/System"
 	messages=yes
 
 %install
-make install GNUSTEP_INSTALLATION_DIR="$RPM_BUILD_ROOT%{_prefix}/System"
+rm -rf $RPM_BUILD_ROOT
+
+%{__make} install \
+	GNUSTEP_INSTALLATION_DIR="$RPM_BUILD_ROOT%{_prefix}/System"
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -56,7 +58,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc TODO
-
 
 %dir %{_prefix}/System/Library/Frameworks/Addresses.framework
 %dir %{_prefix}/System/Library/Frameworks/Addresses.framework/Versions
