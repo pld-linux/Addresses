@@ -10,6 +10,7 @@ Source0:	http://giesler.biz/bjoern/Downloads/%{name}/%{name}-%{version}.tar.gz
 Patch0:		%{name}-make.patch
 URL:		http://giesler.biz/bjoern/English/Software.html#Addresses
 BuildRequires:	gnustep-gui-devel >= 0.8.3
+BuildRequires:	gnustep-extensions-devel >= 0.8.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define         _prefix         /usr/lib/GNUstep
