@@ -2,7 +2,7 @@ Summary:	Contact manager for GNUstep
 Summary(pl):	Zarz±dca kontaktów dla GNUstepa
 Name:		Addresses
 Version:	0.4.6
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 #Source0Download: http://giesler.biz/bjoern/en/sw_addr.html
