@@ -7,6 +7,7 @@ License:	GPL
 Group:		X11/Applications
 Source0:	http://giesler.biz/bjoern/Downloads/%{name}/%{name}-%{version}.tar.gz
 # Source0-md5:	9ace064497b4775e2a451f39430ac107
+Patch0:		%{name}-make.patch
 URL:		http://giesler.biz/bjoern/English/Software.html#Addresses
 BuildRequires:	gnustep-gui-devel >= 0.8.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -29,8 +30,21 @@ Contacts is an address book and address book service for GNUstep apps.
 Contacts to ksi±¿ka adresowa oraz us³uga ksi±¿ki adresowej dla
 aplikacji GNUstepa.
 
+%package devel
+Summary:	Header files for Addresses service
+Summary(pl):	Pliki nag³ówkowe dla us³ugi Addresses
+Group:		X11/Development/Libraries
+Requires:	%{name} = %{version}-%{release}
+
+%description devel
+Header files for Addresses service.
+
+%description devel -l pl
+Pliki nag³ówkowe dla us³ugi Addresses.
+
 %prep
 %setup -q 
+%patch0 -p1
 
 find . -type d -name CVS | xargs rm -rf
 
@@ -59,41 +73,57 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc TODO
 
-%dir %{_prefix}/System/Library/Frameworks/Addresses.framework
-%dir %{_prefix}/System/Library/Frameworks/Addresses.framework/Versions
-%dir %{_prefix}/System/Library/Frameworks/Addresses.framework/Versions/A
-%attr(755,root,root) %{_prefix}/System/Library/Frameworks/Addresses.framework/Versions/A/ix86
-%{_prefix}/System/Library/Frameworks/Addresses.framework/Versions/A/Headers
-%dir %{_prefix}/System/Library/Frameworks/Addresses.framework/Versions/A/Resources
-%{_prefix}/System/Library/Frameworks/Addresses.framework/Versions/A/Resources/*.plist
-%{_prefix}/System/Library/Frameworks/Addresses.framework/Versions/A/Resources/English.lproj
-%lang(de) %{_prefix}/System/Library/Frameworks/Addresses.framework/Versions/A/Resources/German.lproj
-%{_prefix}/System/Library/Frameworks/Addresses.framework/Versions/Current
-%{_prefix}/System/Library/Frameworks/Addresses.framework/Resources
-%{_prefix}/System/Library/Frameworks/Addresses.framework/Headers
-%dir %{_prefix}/System/Library/Frameworks/AddressView.framework
-%dir %{_prefix}/System/Library/Frameworks/AddressView.framework/Versions
-%dir %{_prefix}/System/Library/Frameworks/AddressView.framework/Versions/A
-%attr(755,root,root) %{_prefix}/System/Library/Frameworks/AddressView.framework/Versions/A/ix86
-%{_prefix}/System/Library/Frameworks/AddressView.framework/Versions/A/Headers
-%{_prefix}/System/Library/Frameworks/AddressView.framework/Versions/A/Resources
-%{_prefix}/System/Library/Frameworks/AddressView.framework/Versions/A/Resources/*.plist
-%{_prefix}/System/Library/Frameworks/AddressView.framework/Versions/A/Resources/*.tiff
-%{_prefix}/System/Library/Frameworks/AddressView.framework/Versions/A/Resources/English.lproj
-%lang(de) %{_prefix}/System/Library/Frameworks/AddressView.framework/Versions/A/Resources/German.lproj
-%{_prefix}/System/Library/Frameworks/AddressView.framework/Versions/Current
-%{_prefix}/System/Library/Frameworks/AddressView.framework/Resources
-%{_prefix}/System/Library/Frameworks/AddressView.framework/Headers
-%attr(755,root,root) %{_prefix}/System/Library/Libraries/ix86/linux-gnu/gnu-gnu-gnu/*
-%{_prefix}/System/Library/Headers/gnu-gnu-gnu/Addresses
-%{_prefix}/System/Library/Headers/gnu-gnu-gnu/AddressView
-%attr(755,root,root) %{_prefix}/System/Tools/ix86/linux-gnu/gnu-gnu-gnu/*
 %dir %{_prefix}/System/Applications/AddressManager.app
-%attr(755,root,root) %{_prefix}/System/Applications/AddressManager.app/ix86
+%dir %{_prefix}/System/Applications/AddressManager.app/%{gscpu}
+%dir %{_prefix}/System/Applications/AddressManager.app/%{gscpu}/%{gsos}
+%dir %{_prefix}/System/Applications/AddressManager.app/%{gscpu}/%{gsos}/%{libcombo}
+%attr(755,root,root) %{_prefix}/System/Applications/AddressManager.app/%{gscpu}/%{gsos}/%{libcombo}/AddressManager
+%{_prefix}/System/Applications/AddressManager.app/%{gscpu}/%{gsos}/%{libcombo}/*.openapp
 %attr(755,root,root) %{_prefix}/System/Applications/AddressManager.app/AddressManager
 %dir %{_prefix}/System/Applications/AddressManager.app/Resources
 %{_prefix}/System/Applications/AddressManager.app/Resources/*.plist
 %{_prefix}/System/Applications/AddressManager.app/Resources/*.desktop
 %{_prefix}/System/Applications/AddressManager.app/Resources/*.tiff
 %{_prefix}/System/Applications/AddressManager.app/Resources/English.lproj
+%lang(nl) %{_prefix}/System/Applications/AddressManager.app/Resources/Dutch.lproj
+%lang(fr) %{_prefix}/System/Applications/AddressManager.app/Resources/French.lproj
 %lang(de) %{_prefix}/System/Applications/AddressManager.app/Resources/German.lproj
+
+%dir %{_prefix}/System/Library/Frameworks/Addresses.framework
+%{_prefix}/System/Library/Frameworks/Addresses.framework/Resources
+%dir %{_prefix}/System/Library/Frameworks/Addresses.framework/Versions
+%dir %{_prefix}/System/Library/Frameworks/Addresses.framework/Versions/A
+%attr(755,root,root) %{_prefix}/System/Library/Frameworks/Addresses.framework/Versions/A/%{gscpu}
+%dir %{_prefix}/System/Library/Frameworks/Addresses.framework/Versions/A/Resources
+%{_prefix}/System/Library/Frameworks/Addresses.framework/Versions/A/Resources/*.plist
+%{_prefix}/System/Library/Frameworks/Addresses.framework/Versions/A/Resources/English.lproj
+%lang(nl) %{_prefix}/System/Library/Frameworks/Addresses.framework/Versions/A/Resources/Dutch.lproj
+%lang(fr) %{_prefix}/System/Library/Frameworks/Addresses.framework/Versions/A/Resources/French.lproj
+%lang(de) %{_prefix}/System/Library/Frameworks/Addresses.framework/Versions/A/Resources/German.lproj
+%{_prefix}/System/Library/Frameworks/Addresses.framework/Versions/Current
+%dir %{_prefix}/System/Library/Frameworks/AddressView.framework
+%{_prefix}/System/Library/Frameworks/AddressView.framework/Resources
+%dir %{_prefix}/System/Library/Frameworks/AddressView.framework/Versions
+%dir %{_prefix}/System/Library/Frameworks/AddressView.framework/Versions/A
+%attr(755,root,root) %{_prefix}/System/Library/Frameworks/AddressView.framework/Versions/A/%{gscpu}
+%dir %{_prefix}/System/Library/Frameworks/AddressView.framework/Versions/A/Resources
+%{_prefix}/System/Library/Frameworks/AddressView.framework/Versions/A/Resources/*.dict
+%{_prefix}/System/Library/Frameworks/AddressView.framework/Versions/A/Resources/*.plist
+%{_prefix}/System/Library/Frameworks/AddressView.framework/Versions/A/Resources/*.tiff
+%{_prefix}/System/Library/Frameworks/AddressView.framework/Versions/A/Resources/English.lproj
+%lang(nl) %{_prefix}/System/Library/Frameworks/AddressView.framework/Versions/A/Resources/Dutch.lproj
+%lang(fr) %{_prefix}/System/Library/Frameworks/AddressView.framework/Versions/A/Resources/French.lproj
+%lang(de) %{_prefix}/System/Library/Frameworks/AddressView.framework/Versions/A/Resources/German.lproj
+%{_prefix}/System/Library/Frameworks/AddressView.framework/Versions/Current
+
+%attr(755,root,root) %{_prefix}/System/Library/Libraries/%{gscpu}/%{gsos}/%{libcombo}/*.so.*
+
+%files devel
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_prefix}/System/Library/Libraries/%{gscpu}/%{gsos}/%{libcombo}/*.so
+%{_prefix}/System/Library/Frameworks/Addresses.framework/Headers
+%{_prefix}/System/Library/Frameworks/Addresses.framework/Versions/A/Headers
+%{_prefix}/System/Library/Frameworks/AddressView.framework/Headers
+%{_prefix}/System/Library/Frameworks/AddressView.framework/Versions/A/Headers
+%{_prefix}/System/Library/Headers/%{libcombo}/Addresses
+%{_prefix}/System/Library/Headers/%{libcombo}/AddressView
