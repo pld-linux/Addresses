@@ -51,6 +51,9 @@ Pliki nag³ówkowe dla us³ugi Addresses.
 
 find . -type d -name CVS | xargs rm -rf
 
+# kill precompiled app
+rm -rf AddressManager/AddressManager.app
+
 %build
 . %{_prefix}/System/Library/Makefiles/GNUstep.sh
 TOPDIR="`pwd`"
@@ -64,7 +67,9 @@ GNUSTEP_LOCAL_ROOT="$RPM_BUILD_ROOT%{_prefix}/System"
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	GNUSTEP_INSTALLATION_DIR="$RPM_BUILD_ROOT%{_prefix}/System"
+	GNUSTEP_INSTALLATION_DIR="$RPM_BUILD_ROOT%{_prefix}/System" \
+	debug=no \
+	messages=yes
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -83,7 +88,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_prefix}/System/Applications/AddressManager.app/%{gscpu}/%{gsos}/%{libcombo}/AddressManager
 %{_prefix}/System/Applications/AddressManager.app/%{gscpu}/%{gsos}/%{libcombo}/*.openapp
 %attr(755,root,root) %{_prefix}/System/Applications/AddressManager.app/AddressManager
-%{_prefix}/System/Applications/AddressManager.app/library_paths.openapp
 %dir %{_prefix}/System/Applications/AddressManager.app/Resources
 %{_prefix}/System/Applications/AddressManager.app/Resources/*.plist
 %{_prefix}/System/Applications/AddressManager.app/Resources/*.desktop
