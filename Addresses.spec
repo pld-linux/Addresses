@@ -30,23 +30,28 @@ Contacts to ksi±¿ka adresowa oraz us³uga ksi±¿ki adresowej dla
 aplikacji GNUstepa.
 
 %prep
-%setup -q -n %{name}
+%setup -q 
 
 find . -type d -name CVS | xargs rm -rf
 
 %build
-. %{_prefix}/System/Library/Makefiles/GNUstep.sh
-%{__make} \
-	debug=no \
-	OPTFLAG="%{rpmcflags}" \
-	messages=yes
-
-%install
 rm -rf $RPM_BUILD_ROOT
 . %{_prefix}/System/Library/Makefiles/GNUstep.sh
+TOPDIR="`pwd`"
+GNUSTEP_LOCAL_ROOT="$RPM_BUILD_DIR/%{_prefix}/lib/GNUstep"
+for I in AddressesFramework \
+	AddressViewFramework \
+	GNUMailConverter \
+	AddressManager \
+	addresstool; do
+	%{__make} -C "$I" \
+	OPTFLAG="%{rpmcflags}" \
+	debug=no \
+	messages=yes
+	make -C "$I" install GNUSTEP_INSTALLATION_DIR="$RPM_BUILD_DIR/%{_prefix}/lib/GNUstep"
+done
 
-%{__make} install debug=no \
-	GNUSTEP_INSTALLATION_DIR=$RPM_BUILD_ROOT%{_prefix}/System
+%install
 
 %clean
 rm -rf $RPM_BUILD_ROOT
