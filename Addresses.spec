@@ -35,6 +35,7 @@ Summary:	Header files for Addresses service
 Summary(pl):	Pliki nag³ówkowe dla us³ugi Addresses
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	gnustep-gui-devel >= 0.8.3
 
 %description devel
 Header files for Addresses service.
