@@ -5,6 +5,7 @@ Version:	0.4.6
 Release:	1
 License:	GPL
 Group:		X11/Applications
+#Source0Download: http://giesler.biz/bjoern/en/sw_addr.html
 Source0:	http://giesler.biz/bjoern/downloads/%{name}-%{version}.tar.gz
 # Source0-md5:	916a20261663f78a4fcbd9cbea600851
 Patch0:		%{name}-make.patch
