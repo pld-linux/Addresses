@@ -2,7 +2,7 @@ Summary:	Contact manager for GNUstep
 Summary(pl):	Zarz±dca kontaktów dla GNUstepa
 Name:		Addresses
 Version:	0.4.5
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://giesler.biz/bjoern/downloads/%{name}-%{version}.tar.gz
@@ -13,7 +13,7 @@ BuildRequires:	gnustep-gui-devel >= 0.8.3
 BuildRequires:	gnustep-extensions-devel >= 0.8.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define         _prefix         /usr/lib/GNUstep
+%define         _prefix         /usr/%{_lib}/GNUstep
 
 %define		libcombo	gnu-gnu-gnu
 %define		gsos		linux-gnu
@@ -21,7 +21,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		gscpu		ix86
 %else
 # also s/alpha.*/alpha/, but we use only "alpha" arch for now
-%define		gscpu		%{_target_cpu}
+%define		gscpu		%(echo %{_target_cpu} | sed -e 's/amd64/x86_64/;s/ppc/powerpc/')
 %endif
 
 %description
