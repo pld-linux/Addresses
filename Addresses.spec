@@ -1,13 +1,12 @@
 Summary:	Contact manager for GNUstep
 Summary(pl):	Zarz±dca kontaktów dla GNUstepa
 Name:		Addresses
-Version:	0.3.3
+Version:	0.4.4
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://giesler.biz/bjoern/Downloads/%{name}/%{name}-%{version}.tar.gz
-# Source0-md5:	9830e81ab3ad4c8d41b5e360f473e190
-Patch0:	%{name}-installer.patch
+# Source0-md5:	9ace064497b4775e2a451f39430ac107
 URL:		http://giesler.biz/bjoern/English/Software.html#Addresses
 BuildRequires:	gnustep-gui-devel >= 0.8.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -32,7 +31,6 @@ aplikacji GNUstepa.
 
 %prep
 %setup -q 
-%patch -p1
 
 find . -type d -name CVS | xargs rm -rf
 
@@ -41,20 +39,13 @@ rm -rf $RPM_BUILD_ROOT
 . %{_prefix}/System/Library/Makefiles/GNUstep.sh
 TOPDIR="`pwd`"
 GNUSTEP_LOCAL_ROOT="$RPM_BUILD_ROOT%{_prefix}/System"
-ln -s AddressesFramework AddressBook
-for I in AddressesFramework \
-	AddressViewFramework \
-	GNUMailConverter \
-	AddressManager \
-	addresstool; do
-	%{__make} -C "$I" \
+%{__make} \
 	OPTFLAG="%{rpmcflags} -I$RPM_BUILD_DIR/%{name}-%{version}" \
 	debug=no \
 	messages=yes
-	make -C "$I" install GNUSTEP_INSTALLATION_DIR="$RPM_BUILD_ROOT%{_prefix}/System"
-done
 
 %install
+make install GNUSTEP_INSTALLATION_DIR="$RPM_BUILD_ROOT%{_prefix}/System"
 
 %clean
 rm -rf $RPM_BUILD_ROOT
