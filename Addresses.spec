@@ -1,12 +1,12 @@
 Summary:	Contact manager for GNUstep
 Summary(pl):	Zarz±dca kontaktów dla GNUstepa
 Name:		Addresses
-Version:	0.4.5
-Release:	2
+Version:	0.4.6
+Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://giesler.biz/bjoern/downloads/%{name}-%{version}.tar.gz
-# Source0-md5:	fe6813ab12c03f90f0b8a44d3844c984
+# Source0-md5:	916a20261663f78a4fcbd9cbea600851
 Patch0:		%{name}-make.patch
 URL:		http://giesler.biz/bjoern/en/sw_addr.html
 BuildRequires:	gnustep-gui-devel >= 0.8.3
@@ -45,7 +45,7 @@ Header files for Addresses service.
 Pliki nag³ówkowe dla us³ugi Addresses.
 
 %prep
-%setup -q 
+%setup -q -n %{name}-0.4.7
 %patch0 -p1
 
 find . -type d -name CVS | xargs rm -rf
@@ -82,6 +82,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_prefix}/System/Applications/AddressManager.app/%{gscpu}/%{gsos}/%{libcombo}/AddressManager
 %{_prefix}/System/Applications/AddressManager.app/%{gscpu}/%{gsos}/%{libcombo}/*.openapp
 %attr(755,root,root) %{_prefix}/System/Applications/AddressManager.app/AddressManager
+%{_prefix}/System/Applications/AddressManager.app/library_paths.openapp
 %dir %{_prefix}/System/Applications/AddressManager.app/Resources
 %{_prefix}/System/Applications/AddressManager.app/Resources/*.plist
 %{_prefix}/System/Applications/AddressManager.app/Resources/*.desktop
@@ -90,6 +91,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(nl) %{_prefix}/System/Applications/AddressManager.app/Resources/Dutch.lproj
 %lang(fr) %{_prefix}/System/Applications/AddressManager.app/Resources/French.lproj
 %lang(de) %{_prefix}/System/Applications/AddressManager.app/Resources/German.lproj
+%lang(es) %{_prefix}/System/Applications/AddressManager.app/Resources/Spanish.lproj
 
 %dir %{_prefix}/System/Library/Frameworks/Addresses.framework
 %{_prefix}/System/Library/Frameworks/Addresses.framework/Resources
@@ -102,6 +104,8 @@ rm -rf $RPM_BUILD_ROOT
 %lang(nl) %{_prefix}/System/Library/Frameworks/Addresses.framework/Versions/A/Resources/Dutch.lproj
 %lang(fr) %{_prefix}/System/Library/Frameworks/Addresses.framework/Versions/A/Resources/French.lproj
 %lang(de) %{_prefix}/System/Library/Frameworks/Addresses.framework/Versions/A/Resources/German.lproj
+%lang(es) %{_prefix}/System/Library/Frameworks/Addresses.framework/Versions/A/Resources/Spanish.lproj
+
 %{_prefix}/System/Library/Frameworks/Addresses.framework/Versions/Current
 %dir %{_prefix}/System/Library/Frameworks/AddressView.framework
 %{_prefix}/System/Library/Frameworks/AddressView.framework/Resources
@@ -116,6 +120,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(nl) %{_prefix}/System/Library/Frameworks/AddressView.framework/Versions/A/Resources/Dutch.lproj
 %lang(fr) %{_prefix}/System/Library/Frameworks/AddressView.framework/Versions/A/Resources/French.lproj
 %lang(de) %{_prefix}/System/Library/Frameworks/AddressView.framework/Versions/A/Resources/German.lproj
+%lang(es) %{_prefix}/System/Library/Frameworks/AddressView.framework/Versions/A/Resources/Spanish.lproj
 %{_prefix}/System/Library/Frameworks/AddressView.framework/Versions/Current
 
 %attr(755,root,root) %{_prefix}/System/Library/Libraries/%{gscpu}/%{gsos}/%{libcombo}/*.so.*
