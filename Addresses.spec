@@ -1,12 +1,12 @@
 Summary:	Contact manager for GNUstep
 Summary(pl):	Zarz±dca kontaktów dla GNUstepa
 Name:		Addresses
-Version:	0.4.4
+Version:	0.4.5
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://giesler.biz/bjoern/Downloads/%{name}/%{name}-%{version}.tar.gz
-# Source0-md5:	9ace064497b4775e2a451f39430ac107
+Source0:	http://giesler.biz/bjoern/downloads/%{name}-%{version}.tar.gz
+# Source0-md5:	fe6813ab12c03f90f0b8a44d3844c984
 Patch0:		%{name}-make.patch
 URL:		http://giesler.biz/bjoern/English/Software.html#Addresses
 BuildRequires:	gnustep-gui-devel >= 0.8.3
