@@ -13,7 +13,7 @@ BuildRequires:	gnustep-gui-devel >= 0.8.3
 BuildRequires:	gnustep-extensions-devel >= 0.8.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define         _prefix         /usr/%{_lib}/GNUstep
+%define		_prefix		/usr/%{_lib}/GNUstep
 
 %define		libcombo	gnu-gnu-gnu
 %define		gsos		linux-gnu
