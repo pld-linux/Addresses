@@ -1,0 +1,13 @@
+--- Addresses-0.4.4/AddressManager/GNUmakefile.orig	2003-10-31 11:43:19.000000000 +0100
++++ Addresses-0.4.4/AddressManager/GNUmakefile	2003-12-30 00:34:46.000653864 +0100
+@@ -23,8 +23,8 @@
+ AddressManager_LANGUAGES=Dutch English French German
+ AddressManager_OBJCFLAGS=-I../Frameworks -Wall
+ AddressManager_LDFLAGS=\
+-	-L../Frameworks/AddressView/AddressView.framework/Versions/A \
+-	-L../Frameworks/Addresses/Addresses.framework/Versions/A     \
++	-L../Frameworks/AddressView/AddressView.framework/Versions/A/$(ARCH_OBJ_DIR)/$(LIBRARY_COMBO) \
++	-L../Frameworks/Addresses/Addresses.framework/Versions/A/$(ARCH_OBJ_DIR)/$(LIBRARY_COMBO)     \
+ 	-lAddressView -lAddresses
+ 
+ -include GNUmakefile.preamble
