@@ -8,7 +8,7 @@ Group:		X11/Applications
 Source0:	http://giesler.biz/bjoern/downloads/%{name}-%{version}.tar.gz
 # Source0-md5:	fe6813ab12c03f90f0b8a44d3844c984
 Patch0:		%{name}-make.patch
-URL:		http://giesler.biz/bjoern/English/Software.html#Addresses
+URL:		http://giesler.biz/bjoern/en/sw_addr.html
 BuildRequires:	gnustep-gui-devel >= 0.8.3
 BuildRequires:	gnustep-extensions-devel >= 0.8.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
