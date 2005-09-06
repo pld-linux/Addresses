@@ -58,7 +58,7 @@ rm -rf AddressManager/AddressManager.app
 . %{_prefix}/System/Library/Makefiles/GNUstep.sh
 TOPDIR="`pwd`"
 GNUSTEP_LOCAL_ROOT="$RPM_BUILD_ROOT%{_prefix}/System"
-%{__make} \
+%{__make} -j1 \
 	OPTFLAG="%{rpmcflags} -I$RPM_BUILD_DIR/%{name}-%{version}" \
 	debug=no \
 	messages=yes
@@ -66,7 +66,8 @@ GNUSTEP_LOCAL_ROOT="$RPM_BUILD_ROOT%{_prefix}/System"
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
+. %{_prefix}/System/Library/Makefiles/GNUstep.sh
+%{__make} -j1 install \
 	GNUSTEP_INSTALLATION_DIR="$RPM_BUILD_ROOT%{_prefix}/System" \
 	debug=no \
 	messages=yes
