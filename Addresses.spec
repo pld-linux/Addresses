@@ -1,5 +1,5 @@
 Summary:	Contact manager for GNUstep
-Summary(pl):	Zarz±dca kontaktÛw dla GNUstepa
+Summary(pl.UTF-8):   ZarzƒÖdca kontakt√≥w dla GNUstepa
 Name:		Addresses
 Version:	0.4.6
 Release:	5
@@ -28,13 +28,13 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Contacts is an address book and address book service for GNUstep apps.
 
-%description -l pl
-Contacts to ksi±øka adresowa oraz us≥uga ksi±øki adresowej dla
+%description -l pl.UTF-8
+Contacts to ksiƒÖ≈ºka adresowa oraz us≈Çuga ksiƒÖ≈ºki adresowej dla
 aplikacji GNUstepa.
 
 %package devel
 Summary:	Header files for Addresses service
-Summary(pl):	Pliki nag≥Ûwkowe dla us≥ugi Addresses
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe dla us≈Çugi Addresses
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gnustep-gui-devel >= 0.8.3
@@ -42,8 +42,8 @@ Requires:	gnustep-gui-devel >= 0.8.3
 %description devel
 Header files for Addresses service.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe dla us≥ugi Addresses.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe dla us≈Çugi Addresses.
 
 %prep
 %setup -q -n %{name}-0.4.7
