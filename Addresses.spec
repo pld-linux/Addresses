@@ -1,5 +1,5 @@
 Summary:	Contact manager for GNUstep
-Summary(pl.UTF-8):   Zarządca kontaktów dla GNUstepa
+Summary(pl.UTF-8):	Zarządca kontaktów dla GNUstepa
 Name:		Addresses
 Version:	0.4.6
 Release:	5
@@ -34,7 +34,7 @@ aplikacji GNUstepa.
 
 %package devel
 Summary:	Header files for Addresses service
-Summary(pl.UTF-8):   Pliki nagłówkowe dla usługi Addresses
+Summary(pl.UTF-8):	Pliki nagłówkowe dla usługi Addresses
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gnustep-gui-devel >= 0.8.3
